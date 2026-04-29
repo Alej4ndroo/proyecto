@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h2>Iniciar Sesion</h2>
+
+    <img >
+    <input type="text" placeholder="usuario" id="usuario">
+    <input type="password" placeholder="contraseña" id="contraseña">
+    <button onclick="login()">Entrar</button>
+
+    <p id="mensaje"></p>
+
+    
+</body>
+</html>
+
+<script>
+    function login(){
+        let usuario = document.getElementById("usuario").value;
+        let contraseña = document.getElementById("contraseña").value;
+
+        let usuarioGuardado = "admin";
+        let contraseñaGuardada = "1234";
+
+        if(usuario === usuarioGuardado && contraseña === contraseñaGuardada){                    
+            window.location.href = "calculadora.html";
+        }else{
+            document.getElementById("mensaje").textContent = "Usuario y contraseña incorrecta"; 
+        }
+
+        document.getElementById("usuario").value = "";
+        document.getElementById("contraseña").value = "";
+    }
+</script>

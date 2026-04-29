@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadoraStyles.css">
+</head>
+<body>
+    <div class="calculadora-card">
+        <h2>Calculadora</h2>
+
+        <input type="number" id="numero1" placeholder="Numero 1">
+        <input type="number" id="numero2" placeholder="Numero 2">
+
+        <div class="botones">
+            <button onclick="sumar()">+</button>
+            <button onclick="restar(8)">-</button>
+            <button onclick="multiplicar()">*</button>
+            <button onclick="dividir()">/</button>
+        </div>
+
+        <h3 id="resultado">Resultado: </h3>
+    </div>
+
+    <script>
+        function sumar (){
+            const numero = 8;
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            let resultado = n1 + n2;
+            if(n1 === "" || n2 === ""){
+                 document.getElementById("resultado").textContent ="No hay numeros que sumar";                
+            }else{
+                document.getElementById("resultado").textContent ="Resultado: " + resultado;                
+            }
+            
+        }
+        function restar (numero){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            let resultado = n1 - n2;
+            document.getElementById("resultado").textContent ="Resultado: " + resultado;                
+        }
+
+        function dividir (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            if (n2 === 0){                    
+                document.getElementById("resultado").textContent ="No se puede dividir entre 0";                                        
+            }else{
+                let resultado = n1 / n2;
+                document.getElementById("resultado").textContent ="Resultado: " + resultado;
+            } 
+        }
+        function multiplicar (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);               
+            let resultado = n1 * n2;
+            document.getElementById("resultado").textContent = "Resultado: " + resultado;                                
+        }
+    </script>
+</body>
+</html>

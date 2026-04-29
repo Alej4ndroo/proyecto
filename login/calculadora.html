@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI';
+        }
+
+
+        .calculadora-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin: 0;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 6px;
+            color: #333;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculadora-card">
+        <h2>Calculadora</h2>
+
+        <input type="number" id="numero1" placeholder="Numero 1">
+        <input type="number" id="numero2" placeholder="Numero 2">
+
+        <div class="botones">
+            <button onclick="sumar()">+</button>
+            <button onclick="restar()">-</button>
+            <button onclick="multiplicar()">*</button>
+            <button onclick="dividir()">/</button>
+        </div>
+
+        <h3 id="resultado">Resultado: </h3>
+    </div>
+
+    <script>
+        function sumar (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            let resultado = n1 + n2;
+            if(n1 === "" || n2 === ""){
+                 document.getElementById("resultado").textContent ="No hay numeros que sumar";                
+            }else{
+                document.getElementById("resultado").textContent ="Resultado: " + resultado;                
+            }
+            
+        }
+        function restar (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            let resultado = n1 - n2;
+            document.getElementById("resultado").textContent ="Resultado: " + resultado;                
+        }
+        function dividir (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            if (n2 === 0){                    
+                document.getElementById("resultado").textContent ="No se puede dividir entre 0";                                        
+            }else{
+                let resultado = n1 / n2;
+                document.getElementById("resultado").textContent ="Resultado: " + resultado;
+            } 
+        }
+        function multiplicar (){
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);               
+            let resultado = n1 * n2;
+            document.getElementById("resultado").textContent ="Resultado: " + resultado;                                
+        }
+    </script>
+</body>
+</html>
